@@ -319,5 +319,324 @@ This lab has been **successfully completed**. During the lab, the following topi
 ---
 
 
+# 🧪 Lab: Exploring and Connecting to MCP Servers  
+## Flight Booking System
+
+## 🎯 Lab Objective
+
+In this lab, I connected to and explored an existing **Model Context Protocol (MCP)** server instead of building one from scratch.  
+The goal was to understand how MCP servers expose **data and actions** to AI assistants through a real-world **flight booking system**.
+
+---
+
+## 🔍 What I Explored
+
+By the end of this lab, I gained hands-on experience with:
+
+- ✅ A pre-built Flight Booking MCP server  
+- ✅ Roo-Code AI assistant integration  
+- ✅ STDIO vs HTTP transport modes  
+- ✅ MCP server configuration and testing  
+- ✅ MCP Resources, Tools, and Prompts  
+- ✅ Testing with MCP Inspector  
+
+---
+
+## 🧠 MCP Server Overview
+
+An MCP server exposes **three core components**:
+
+### 1️⃣ Resources (Read-only data)
+
+Resources provide structured data that AI systems can query.
+
+**Examples:**
+- Airports list  
+- Airlines information  
+- Flight policies  
+- Weather or maps  
+
+➡️ Resources are **read-only** and identified using **URI schemes** (e.g. `file://airports`).
+
+---
+
+### 2️⃣ Tools (Actions)
+
+Tools allow the AI to perform actions.
+
+**Examples:**
+- Search flights  
+- Create a booking  
+- Check in a passenger  
+
+➡️ Tools accept parameters and return **structured outputs**.
+
+---
+
+### 3️⃣ Prompts (AI guidance)
+
+Prompts define instruction templates that guide the AI’s reasoning.
+
+**Examples:**
+- Find the best flight within a budget  
+- Handle flight disruptions empathetically  
+
+➡️ Prompts help the AI choose the right tools and responses.
+
+---
+
+## 🧩 Flight Booking MCP Server (Provided Code)
+
+I worked with a complete MCP server implemented using the **FastMCP Python SDK**:
+
+```python
+from mcp.server.fastmcp import FastMCP
+
+# Create an MCP server
+mcp = FastMCP("Flight Booking Server")
+
+```
+
+## 📦 Defining MCP Resources
+###✈️ Airports Resource
+
+```python
+@mcp.resource("file://airports")
+def get_airports():
+    """Get list of available airports"""
+    return {
+        "LAX": {"name": "Los Angeles International", "city": "Los Angeles"},
+        "JFK": {"name": "John F. Kennedy International", "city": "New York"},
+        "LHR": {"name": "London Heathrow", "city": "London"}
+    }
+
+
+```
+
+###🏢 Airlines Resource
+
+```python
+@mcp.resource("file://airlines")
+def get_airlines():
+    """Get list of available airlines and their information"""
+    return {
+        "AA": {"name": "American Airlines", "country": "USA", "fleet_size": 950},
+        "BA": {"name": "British Airways", "country": "UK", "fleet_size": 280},
+        "DL": {"name": "Delta Air Lines", "country": "USA", "fleet_size": 860},
+        "UA": {"name": "United Airlines", "country": "USA", "fleet_size": 790}
+    }
+
+
+```
+
+📌 Important Notes
+
+Resources must use a valid URI scheme (e.g. file://airports)
+
+Resources are read-only
+
+They provide context for AI decision-making
+
+##🛠️ Defining MCP Tools
+###🔍 Search Flights Tool
+
+```python 
+@mcp.tool()
+def search_flights(origin: str, destination: str) -> dict:
+    """Search for flights between two airports"""
+    return {
+        "flights": [
+            {"id": "FL123", "origin": origin, "destination": destination, "price": 299},
+            {"id": "FL456", "origin": origin, "destination": destination, "price": 399}
+        ]
+    }
+
+```
+
+###🧾 Create Booking Tool
+```python
+@mcp.tool()
+def create_booking(flight_id: str, passenger_name: str) -> dict:
+    """Create a flight booking"""
+    return {
+        "booking_id": f"BK{flight_id[-3:]}",
+        "flight_id": flight_id,
+        "passenger": passenger_name,
+        "status": "confirmed"
+    }
+
+
+
+```
+
+✅ Tools:
+
+Perform actions
+
+Accept parameters
+
+Return structured data
+
+##💬 Defining MCP Prompts
+###✨ Find Best Flight Prompt
+```python
+@mcp.prompt()
+def find_best_flight(budget: float, preferences: str = "economy") -> str:
+    """Generate a prompt for finding the best flight within budget"""
+    return f"""Please help me find the best flight within a ${budget} budget.
+
+My preferences: {preferences}
+
+Please consider:
+- Price (must be under ${budget})
+- Flight duration
+- Airline reputation
+- Departure times
+
+Use the search_flights tool to find available options and provide a recommendation with reasoning."""
+
+```
+###⚠️ Handle Flight Disruption Prompt
+
+
+```python
+@mcp.prompt()
+def handle_disruption(original_flight: str, reason: str) -> str:
+    """Generate a prompt for handling flight disruptions"""
+    return f"""A passenger's flight {original_flight} has been disrupted due to: {reason}
+
+Please help resolve this by:
+1. Understanding the passenger's situation
+2. Finding alternative flight options using search_flights
+3. Providing clear rebooking steps
+4. Offering appropriate compensation if applicable
+
+Be empathetic and solution-focused in your response."""
+
+
+```
+
+📌 Prompts:
+
+Guide AI behavior
+
+Encourage tool usage
+
+Improve reasoning and user experience
+
+###▶️ Running the MCP Server
+
+
+```python
+if __name__ == "__main__":
+    # Run in streamable HTTP mode for client connections
+    mcp.run()
+
+
+
+```
+
+This starts the MCP server using HTTP transport, allowing external clients (such as Roo-Code or MCP Inspector) to connect.
+
+###🔌 Roo-Code Integration
+
+I edited the MCP server configuration and connected it to Roo-Code, allowing the AI assistant to:
+
+Read MCP resources
+
+Invoke tools
+
+Follow prompts for decision-making
+
+This simulated real-world AI agent workflows.
+
+###🔍 Testing with MCP Inspector
+
+Before building a client, I tested the server using MCP Inspector:
+
+```
+
+npx @modelcontextprotocol/inspector
+
+```
+
+This launched a web interface where I could:
+
+Browse resources
+
+Execute tools
+
+Test prompts
+
+📌 MCP Inspector was essential for debugging and validation.
+
+##🧰 Python Project Setup with UV
+###📦 What is UV?
+
+UV is a fast, modern Python package and project manager written in Rust.
+
+###🚀 Why I Used UV for MCP
+
+Officially recommended by MCP
+
+10–100× faster than pip
+
+Manages environments, dependencies, and Python versions
+
+Uses pyproject.toml (modern standard)
+
+
+## 🆚 UV vs Traditional Tools
+
+| Traditional | UV Equivalent |
+|------------|---------------|
+| `pip install package` | `uv add package` |
+| `python -m venv env` | `uv init project` |
+| `pip install -r requirements.txt` | `uv sync` |
+
+##🧪 Creating the MCP Project with UV
+`
+cd /home/lab-user
+uv init flight-booking-server
+cd flight-booking-server
+uv add "mcp[cli]"
+`
+### ❓ Why these commands?
+
+- `uv init` → creates a clean Python project  
+- `mcp[cli]` → installs the MCP SDK and Inspector  
+- Follows the official MCP workflow  
+
+---
+
+## ✅ Lab Checklist
+
+- ✔️ `server.py` exists  
+- ✔️ Resources use `@mcp.resource("file://...")`  
+- ✔️ Tools use `@mcp.tool()`  
+- ✔️ Prompts use `@mcp.prompt()`  
+- ✔️ Server runs without errors  
+- ✔️ MCP Inspector connects successfully  
+
+---
+
+## 🏁 Lab Summary
+
+In this lab, I learned how to:
+
+- Understand MCP server architecture  
+- Use Resources, Tools, and Prompts effectively  
+- Connect MCP servers to Roo-Code  
+- Compare STDIO vs HTTP transport modes  
+- Test MCP servers using MCP Inspector  
+- Set up MCP projects using UV  
+
+
+
+
+
+
+
+
 
 
