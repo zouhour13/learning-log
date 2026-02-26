@@ -629,7 +629,244 @@ In this lab, I learned how to:
 - Connect MCP servers to Roo-Code  
 - Compare STDIO vs HTTP transport modes  
 - Test MCP servers using MCP Inspector  
-- Set up MCP projects using UV  
+- Set up MCP projects using UV
+
+  # 🧪 Lab: Kubernetes MCP Server
+
+## 📌 Lab Status
+✅ **Completed / Terminated**
+
+---
+
+## 🤖 Kubernetes Cluster Management with AI
+
+In this lab, I integrated a **Kubernetes MCP server** with **Roo-Code** to manage a Kubernetes cluster using **natural language commands**.
+
+This setup enables AI-assisted cluster operations such as resource creation, inspection, and troubleshooting without manually writing `kubectl` commands.
+
+---
+
+## 🎯 What I Accomplished
+
+- Explored an existing Kubernetes cluster
+- Configured the `k8s-mcp-server` in Roo-Code
+- Connected Roo-Code to the Kubernetes cluster
+- Executed Kubernetes operations using natural language
+- Practiced AI-powered troubleshooting of broken resources
+
+---
+
+## 🌐 Environment
+
+- **Cloud-based Kubernetes cluster** (pre-configured)
+- **Roo-Code AI assistant**
+- **k8s-mcp-server** running inside a Docker container
+- Kubernetes access via mounted `kubeconfig`
+
+---
+
+## 🔍 Step 1: Explore the Kubernetes Environment
+
+I explored the current state of the cluster using standard `kubectl` commands.
+
+### Commands Used
+```bash
+kubectl get namespaces
+kubectl get pods --all-namespaces
+kubectl get nodes
+kubectl get services --all-namespaces
+
+```
+Observations
+
+Namespaces: 4 (including default)
+
+Control plane node status: Ready
+
+Pods in default namespace: None (empty)
+
+Services: No user-deployed services running
+
+### 🧠 Understanding the k8s-mcp-server
+
+Before configuration, I reviewed the capabilities of the Kubernetes MCP server.
+
+## 🔧 Key Features
+
+18 Kubernetes tools
+
+Pod operations (list, describe, logs, delete)
+
+Node management and metrics
+
+Resource creation and updates
+
+Helm chart management
+
+Event monitoring and troubleshooting
+
+## 🚀 Benefits
+
+Natural language Kubernetes management
+
+AI-powered diagnostics
+
+Reduced operational complexity
+
+Seamless Roo-Code integration
+
+### 🐳 Step 2: Prepare the Docker Image
+
+The Kubernetes MCP server is provided as a Docker image.
+
+Commands Used
+ ```bash
+sudo docker pull ginnux/k8s-mcp-server:latest
+sudo docker images | grep k8s-mcp-server
+sudo docker inspect ginnux/k8s-mcp-server:latest
+
+```
+Results
+
+Image downloaded successfully
+
+Image size: ~50–100 MB
+
+Image contains a pre-built MCP server for Kubernetes
+
+### ⚙️ Step 3: Configure Roo-Code MCP Server
+
+I integrated the Kubernetes MCP server into Roo-Code using the following MCP configuration.
+
+MCP Configuration
+```
+{
+  "mcpServers": {
+    "k8s-mcp-server": {
+      "command": "sudo",
+      "args": [
+        "docker",
+        "run",
+        "-i",
+        "--rm",
+        "-v",
+        "/home/lab-user/.kube/config:/home/appuser/.kube/config:ro",
+        "ginnux/k8s-mcp-server:latest",
+        "--mode",
+        "stdio"
+      ]
+    }
+  }
+}
+
+```
+Configuration Explanation
+
+sudo docker run → Runs the container with required privileges
+
+`-i --rm` → Interactive mode, auto-remove container after exit
+
+`-v ...:ro` → Mounts the host kubeconfig read-only
+
+`--mode stdio` → Uses standard input/output for MCP communication
+
+### ❓ Concept Questions & Answers
+
+What does the kubeconfig volume mount do?
+It mounts the host Kubernetes configuration file into the container as read-only, allowing the MCP server to access the cluster securely.
+
+Why use --mode stdio?
+To allow MCP communication through standard input/output, which Roo-Code expects.
+
+How many tools does the k8s-mcp-server provide?
+18 Kubernetes tools.
+
+### 🔗 Step 4: Test Roo-Code Connection
+
+I verified the integration by issuing natural language commands in Roo-Code.
+
+Example Commands
+
+“Connect to my Kubernetes cluster”
+
+“Show me the status of my cluster”
+
+“List all namespaces in my cluster”
+
+“What nodes do I have?”
+
+Expected Behavior
+
+Roo-Code detects the k8s-mcp-server
+
+Executes Kubernetes operations successfully
+
+Returns results in natural language
+
+### 🚀 Step 5: Kubernetes Operations via AI
+## ✅ Task 1: Create an Nginx Pod
+
+Command:
+
+“Create an nginx pod with nginx image”
+
+Result:
+
+Pod created successfully
+
+## 🔍 Task 2: Verify Pod Status
+
+Commands:
+
+“Show me the status of the nginx pod”
+
+“Show pod details”
+
+Result:
+
+Pod confirmed running
+
+## ⚠️ Task 3: Simulate a Broken Scenario
+
+Command:
+
+“Create a pod named test-pod with image BUSYYBOX”
+
+Result:
+
+Pod failed to start
+
+Troubleshooting:
+
+“Why is my test-pod not starting?”
+
+AI correctly identified the issue:
+
+Invalid image name
+
+### 🎓 Learning Objectives Achieved
+
+Created Kubernetes resources using natural language
+
+Verified and inspected cluster resources
+
+Practiced AI-driven troubleshooting
+
+Understood MCP-based Kubernetes automation
+
+Learned secure kubeconfig handling via containers
+
+### ✅ Lab Completion Summary
+
+✔ Kubernetes environment explored
+✔ k8s-mcp-server Docker image deployed
+✔ Roo-Code MCP configuration completed
+✔ Cluster connected via AI
+✔ Pod creation and validation tested
+✔ Broken pod troubleshooting performed
+
+🎉 Lab successfully completed
+
 
 
 
