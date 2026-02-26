@@ -398,7 +398,7 @@ mcp = FastMCP("Flight Booking Server")
 ```
 
 ### 📦 Defining MCP Resources
-##✈️ Airports Resource
+## ✈️ Airports Resource
 
 ```python
 @mcp.resource("file://airports")
@@ -413,7 +413,7 @@ def get_airports():
 
 ```
 
-##🏢 Airlines Resource
+## 🏢 Airlines Resource
 
 ```python
 @mcp.resource("file://airlines")
@@ -437,8 +437,8 @@ Resources are read-only
 
 They provide context for AI decision-making
 
-##🛠️ Defining MCP Tools
-###🔍 Search Flights Tool
+## 🛠️ Defining MCP Tools
+### 🔍 Search Flights Tool
 
 ```python 
 @mcp.tool()
@@ -453,7 +453,7 @@ def search_flights(origin: str, destination: str) -> dict:
 
 ```
 
-###🧾 Create Booking Tool
+### 🧾 Create Booking Tool
 ```python
 @mcp.tool()
 def create_booking(flight_id: str, passenger_name: str) -> dict:
@@ -477,8 +477,8 @@ Accept parameters
 
 Return structured data
 
-##💬 Defining MCP Prompts
-###✨ Find Best Flight Prompt
+## 💬 Defining MCP Prompts
+### ✨ Find Best Flight Prompt
 ```python
 @mcp.prompt()
 def find_best_flight(budget: float, preferences: str = "economy") -> str:
@@ -496,7 +496,7 @@ Please consider:
 Use the search_flights tool to find available options and provide a recommendation with reasoning."""
 
 ```
-###⚠️ Handle Flight Disruption Prompt
+### ⚠️ Handle Flight Disruption Prompt
 
 
 ```python
@@ -524,7 +524,7 @@ Encourage tool usage
 
 Improve reasoning and user experience
 
-###▶️ Running the MCP Server
+### ▶️ Running the MCP Server
 
 
 ```python
@@ -550,7 +550,7 @@ Follow prompts for decision-making
 
 This simulated real-world AI agent workflows.
 
-###🔍 Testing with MCP Inspector
+### 🔍 Testing with MCP Inspector
 
 Before building a client, I tested the server using MCP Inspector:
 
@@ -630,6 +630,7 @@ In this lab, I learned how to:
 - Compare STDIO vs HTTP transport modes  
 - Test MCP servers using MCP Inspector  
 - Set up MCP projects using UV  
+
 
 
 
