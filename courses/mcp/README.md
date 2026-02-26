@@ -397,8 +397,8 @@ mcp = FastMCP("Flight Booking Server")
 
 ```
 
-## 📦 Defining MCP Resources
-###✈️ Airports Resource
+### 📦 Defining MCP Resources
+##✈️ Airports Resource
 
 ```python
 @mcp.resource("file://airports")
@@ -413,7 +413,7 @@ def get_airports():
 
 ```
 
-###🏢 Airlines Resource
+##🏢 Airlines Resource
 
 ```python
 @mcp.resource("file://airlines")
@@ -630,6 +630,7 @@ In this lab, I learned how to:
 - Compare STDIO vs HTTP transport modes  
 - Test MCP servers using MCP Inspector  
 - Set up MCP projects using UV  
+
 
 
 
