@@ -1,26 +1,36 @@
 # 📘 Learning Log
 
-This repository tracks the courses, crash courses, and self-learning I complete
-to continuously improve my skills in software engineering, AI, and data systems.
+A growing collection of notes from courses, technical reading, and independent learning across software engineering, AI, data systems, and infrastructure.
+
+The goal is to build a revisitable knowledge base with topic maps, detailed reference notes, and self-assessment material.
 
 ---
 
-## 🧠 Model Context Protocol (MCP) – Crash Course
-**Platform:** KodeKloud  
+## 🧠 Model Context Protocol (MCP) — Crash Course
+
+**Platform:** KodeKloud
 
 📄 **Detailed notes:** [courses/mcp](courses/mcp)
 
-### What I learned
-- What the Model Context Protocol (MCP) is and why it matters for modern distributed systems
-- MCP core components and architecture
-- How MCP enables context-aware communication between models
-- Basics of MCP server and client implementation through demos and labs
-
-### Key Skills
-- Context-driven system design  
-- Client–server architecture  
-- MCP fundamentals  
+Topics include MCP concepts and architecture, client–server communication, context-aware integrations, and server/client implementation fundamentals.
 
 ---
 
-*This log will be updated as I complete more courses and learning experiences.*
+## 🔐 Cybersecurity Fundamentals
+
+📄 **Learning notes:** [security/](security/)
+
+A structured reference covering security properties, identity and access control, cryptography, network defense, common attacks, application and API security, system hardening, incident response, backups, resilience, and privacy.
+
+### Modules
+- [Security fundamentals](security/01-security-fundamentals.md)
+- [Cryptography and TLS](security/02-cryptography.md)
+- [Network security](security/03-network-security.md)
+- [Threats and application security](security/04-threats-and-application-security.md)
+- [Systems and security operations](security/05-systems-and-security-operations.md)
+- [Resilience and governance](security/06-resilience-and-governance.md)
+- [Self-assessment](security/self-assessment.md)
+
+---
+
+*This repository evolves as new topics are studied and existing notes are refined.*
