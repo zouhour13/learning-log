@@ -16,22 +16,16 @@ Topics include MCP concepts and architecture, client–server communication, con
 
 ---
 
-## 🔐 Cybersecurity Fundamentals
+## 📚 Technical Courses
 
 **Author:** Zouhour Bellamine
 
-📄 **Courses:** [security/courses](security/courses/)
+All technical course notes are organized under [courses/](courses/).
 
-A structured self-learning knowledge base covering security fundamentals, cryptography, network defense, common threats, application and API security, system hardening, incident response, backups, resilience, and privacy.
+- [Computer networking](courses/networking/README.md)
+- [Cybersecurity](courses/security/README.md)
 
-### Courses
-- [Security fundamentals](security/courses/01-security-fundamentals.md)
-- [Cryptography and TLS](security/courses/02-cryptography.md)
-- [Network security](security/courses/03-network-security.md)
-- [Threats and application security](security/courses/04-threats-and-application-security.md)
-- [Systems and security operations](security/courses/05-systems-and-security-operations.md)
-- [Resilience and governance](security/courses/06-resilience-and-governance.md)
-- [Self-assessment](security/courses/self-assessment.md)
+The cybersecurity knowledge base covers security fundamentals, cryptography, network defense, common threats, application and API security, system hardening, incident response, backups, resilience, and privacy.
 
 ---
 
