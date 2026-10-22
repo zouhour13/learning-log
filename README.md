@@ -18,18 +18,20 @@ Topics include MCP concepts and architecture, client–server communication, con
 
 ## 🔐 Cybersecurity Fundamentals
 
-📄 **Learning notes:** [security/](security/)
+**Author:** Zouhour Bellamine
 
-A structured reference covering security properties, identity and access control, cryptography, network defense, common attacks, application and API security, system hardening, incident response, backups, resilience, and privacy.
+📄 **Courses:** [security/courses](security/courses/)
 
-### Modules
-- [Security fundamentals](security/01-security-fundamentals.md)
-- [Cryptography and TLS](security/02-cryptography.md)
-- [Network security](security/03-network-security.md)
-- [Threats and application security](security/04-threats-and-application-security.md)
-- [Systems and security operations](security/05-systems-and-security-operations.md)
-- [Resilience and governance](security/06-resilience-and-governance.md)
-- [Self-assessment](security/self-assessment.md)
+A structured self-learning knowledge base covering security fundamentals, cryptography, network defense, common threats, application and API security, system hardening, incident response, backups, resilience, and privacy.
+
+### Courses
+- [Security fundamentals](security/courses/01-security-fundamentals.md)
+- [Cryptography and TLS](security/courses/02-cryptography.md)
+- [Network security](security/courses/03-network-security.md)
+- [Threats and application security](security/courses/04-threats-and-application-security.md)
+- [Systems and security operations](security/courses/05-systems-and-security-operations.md)
+- [Resilience and governance](security/courses/06-resilience-and-governance.md)
+- [Self-assessment](security/courses/self-assessment.md)
 
 ---
 
