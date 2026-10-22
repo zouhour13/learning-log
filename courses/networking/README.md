@@ -6,10 +6,10 @@ A structured collection of notes on computer networking, from foundational model
 
 ## Suggested learning path
 
-1. [OSI and TCP/IP models](01-osi-and-tcp-ip.md)
-2. [IPv4 addressing and subnetting](02-ipv4-and-subnetting.md)
-3. [Transport and application protocols](03-network-protocols.md)
-4. [Routing, switching, and network devices](04-routing-and-network-devices.md)
-5. [Network services and security basics](05-network-services-and-security.md)
+1. OSI and TCP/IP models
+2. IPv4 addressing and subnetting
+3. Transport and application protocols
+4. Routing, switching, and network devices
+5. Network services and security basics
 
-Detailed notes for these topics can be added as each course section is developed.
+Detailed notes for each topic will be added here as the course material is developed.
