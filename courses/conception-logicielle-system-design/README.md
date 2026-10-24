@@ -752,5 +752,4 @@ Les deux contrôles sont nécessaires ; une identité authentifiée ne doit pas 
 18. **Tests :** unitaires, intégration, système, acceptation, non-régression, charge et sécurité.
 
 ---
-
 *Cette fiche est conçue comme une référence évolutive : les exemples sont illustratifs, et les choix d’architecture doivent être validés selon les besoins, les contraintes et les mesures du système réel.*
