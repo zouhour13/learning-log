@@ -2,7 +2,7 @@
 
 A growing knowledge base of technical notes from independent learning across software engineering, AI, data systems, networking, and cybersecurity.
 
-**Author:** Zouhour Bellamine
+**Author:** zouhour13
 
 ## Technical courses
 
