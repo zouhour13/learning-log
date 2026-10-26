@@ -1,6 +1,6 @@
 # Technical Courses
 
-> **Author:** Zouhour Bellamine
+> **Author:** zouhour13
 
 This directory contains technical learning notes organized by subject. Each course has its own folder with focused Markdown files and reference material.
 
