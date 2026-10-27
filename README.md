@@ -11,6 +11,10 @@ Browse the course folders:
 - 📡 [Computer Networking](https://github.com/zouhour13/learning-log/tree/main/courses/networking) — networking concepts, addressing, subnetting, protocols, routing, and network services.
 - 🔐 [Cybersecurity — English and French](https://github.com/zouhour13/learning-log/tree/main/courses/security) — security fundamentals, cryptography, network defense, application and API security, system hardening, incident response, resilience, and privacy.
 - 🧩 [Méthodologie de conception logicielle, UML et System Design](https://github.com/zouhour13/learning-log/tree/main/courses/conception-logicielle-system-design) — requirements analysis, UML diagrams, software architecture, relational modeling, scalability, APIs, resilience, security, and testing.
+- 🗄️ [Bases de données et SQL](https://github.com/zouhour13/learning-log/tree/main/courses/base-de-donnee) — relational modeling, SQL, joins, aggregation, normalization, transactions, indexes, and database security.
+- 🖥️ [Systèmes d’exploitation](https://github.com/zouhour13/learning-log/tree/main/courses/systemes-exploitation) — processes, threads, scheduling, memory management, synchronization, Linux and filesystems.
+- ⚙️ [Développement Backend](https://github.com/zouhour13/learning-log/tree/main/courses/backend-development) — HTTP, REST APIs, backend architecture, authentication, application security, persistence, concurrency, testing, and performance.
+- 🚀 [DevOps et Déploiement](https://github.com/zouhour13/learning-log/tree/main/courses/devops) — Git, CI/CD, Docker, pipelines, Linux operations, deployment, monitoring, secrets, and reliability.
 
 You can also open the [courses index](https://github.com/zouhour13/learning-log/blob/main/courses/README.md).
 
@@ -39,7 +43,15 @@ learning-log/
     │   ├── 06-resilience-and-governance.fr.md
     │   ├── self-assessment.md
     │   └── self-assessment.fr.md
-    └── conception-logicielle-system-design/
+    ├── base-de-donnee/
+    │   └── README.md
+    ├── conception-logicielle-system-design/
+    │   └── README.md
+    ├── systemes-exploitation/
+    │   └── README.md
+    ├── backend-development/
+    │   └── README.md
+    └── devops/
         └── README.md
 ```
 
