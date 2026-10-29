@@ -13,6 +13,7 @@ This directory contains technical learning notes organized by subject. Each cour
 - [Systèmes d’exploitation](https://github.com/zouhour13/learning-log/tree/main/courses/systemes-exploitation) — operating-system fundamentals, processes and threads, CPU scheduling, memory management and virtual memory, synchronization, deadlocks, Linux commands and administration, filesystems, and input/output.
 - [Développement Backend](https://github.com/zouhour13/learning-log/tree/main/courses/backend-development) — client-server architecture, HTTP, REST APIs, status codes, backend layers, authentication and authorization, application security, database access, concurrency, testing, and performance.
 - [DevOps et Déploiement](https://github.com/zouhour13/learning-log/tree/main/courses/devops) — Git workflows, CI/CD, automated pipelines, containers and Docker, Linux operations, deployment strategies, configuration and secrets, monitoring, backups, and reliability.
+- [Programmation, algorithmique et technologies Web](https://github.com/zouhour13/learning-log/tree/main/courses/programmation-algorithmique-web) — variables, conditions, fonctions, structures de données, complexité, algorithmes classiques, POO, HTTP, REST, Spring Boot et Angular.
 
 ## Course structure
 
@@ -25,3 +26,4 @@ Each subject is maintained in a dedicated folder. Course folders may contain a m
 - [Operating Systems](https://github.com/zouhour13/learning-log/tree/main/courses/systemes-exploitation)
 - [Backend Development](https://github.com/zouhour13/learning-log/tree/main/courses/backend-development)
 - [DevOps](https://github.com/zouhour13/learning-log/tree/main/courses/devops)
+- [Programmation, algorithmique et technologies Web](https://github.com/zouhour13/learning-log/tree/main/courses/programmation-algorithmique-web)
